@@ -446,45 +446,7 @@ require('lazy').setup {
             },
           },
 
-          intelephense = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-          },
-
-          html = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-            capabilities = capabilities,
-          },
-
-          emmet_language_server = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-          },
-
-          cssls = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-          },
-
-          tailwindcss = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-          },
-
           yamlls = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-          },
-
-          ts_ls = {
-            filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'html' },
             root_dir = function()
               return vim.loop.cwd()
             end,
@@ -564,13 +526,6 @@ require('lazy').setup {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        html = { 'prettier' },
-        css = { 'prettier' },
-        javascript = { 'prettier' },
-        json = { 'prettier' },
-        jsx = { 'prettier' },
-        vue = { 'prettier' },
-        php = { 'php-cs-fixer' },
         yaml = { 'prettier' },
         bashls = { 'beautybash' },
         -- Conform can also run multiple formatters sequentially
