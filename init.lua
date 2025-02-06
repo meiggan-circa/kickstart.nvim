@@ -463,6 +463,12 @@ require('lazy').setup {
               return vim.loop.cwd()
             end,
           },
+
+          lemminx = {
+            root_dir = function()
+              return vim.loop.cwd()
+            end,
+          },
         },
         -- Ensure the servers and tools above are installed
         --  To check the current status of installed tools and/or manually install
@@ -479,6 +485,7 @@ require('lazy').setup {
         'stylua', -- Used to format Lua code
         'prettier',
         'beautysh',
+        'xmlformatter',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -534,7 +541,8 @@ require('lazy').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         yaml = { 'prettier' },
-        bashls = { 'beautysh' },
+        bash = { 'beautysh' },
+        xml = { 'xmlformatter' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
