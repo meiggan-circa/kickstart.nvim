@@ -125,20 +125,6 @@ require('lazy').setup {
   -- keys can be used to configure plugin behavior/loading/etc.
   --
   -- Use `opts = {}` to force a plugin to be loaded.
-  {
-    -- See `:help gitsigns` to understand what the configuration keys do
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
 
   {
     -- Fuzzy Finder (files, lsp, etc)
@@ -463,6 +449,26 @@ require('lazy').setup {
               return vim.loop.cwd()
             end,
           },
+
+          lemminx = {
+            root_dir = function()
+              return vim.loop.cwd()
+            end,
+          },
+
+          ts_ls = {
+            root_dir = function()
+              return vim.loop.cwd()
+            end,
+            capabilities = capabilities,
+          },
+
+          pyright = {
+            root_dir = function()
+              return vim.loop.cwd()
+            end,
+            capabilities = capabilities,
+          },
         },
         -- Ensure the servers and tools above are installed
         --  To check the current status of installed tools and/or manually install
@@ -480,6 +486,7 @@ require('lazy').setup {
         'prettier',
         'beautysh',
         'xmlformatter',
+        'black',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -537,6 +544,8 @@ require('lazy').setup {
         yaml = { 'prettier' },
         bash = { 'beautysh' },
         xml = { 'xmlformatter' },
+        javascript = { 'prettier' },
+        python = { 'black' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -764,19 +773,12 @@ require('lazy').setup {
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- { import = 'custom.plugins' },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
-  },
 
   {
     'numToStr/Comment.nvim',
@@ -845,18 +847,10 @@ require('lazy').setup {
 
   { 'Bilal2453/luvit-meta', lazy = true },
 
-  'ThePrimeagen/vim-be-good',
   'tpope/vim-fugitive',
   'windwp/nvim-ts-autotag',
   'mbbill/undotree',
 }
-
--- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
-require('ibl').setup()
 
 -- [ KEYMAPS ]
 
@@ -943,4 +937,5 @@ vim.keymap.set('i', '<C-z>', '<Esc>:undo<CR>i', { desc = 'Undo changes' })
 
 vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = 'Toggle [U]ndotree' })
 
--- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
