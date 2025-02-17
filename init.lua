@@ -463,12 +463,6 @@ require('lazy').setup {
               return vim.loop.cwd()
             end,
           },
-
-          lemminx = {
-            root_dir = function()
-              return vim.loop.cwd()
-            end,
-          },
         },
         -- Ensure the servers and tools above are installed
         --  To check the current status of installed tools and/or manually install
