@@ -207,32 +207,6 @@ return {
           },
         },
       },
-
-      html = { capabilities = capabilities, },
-
-      ts_ls = { capabilities = capabilities, },
-
-      tailwindcss = { capabilities = capabilities, },
-
-      intelephense = { capabilities = capabilities, },
-
-      emmet_language_server = {
-        single_file_support = true,
-        filetypes = {
-          'html',
-          'css',
-          'javascriptreact',
-          'typescriptreact',
-          'htmldjango',
-          'htmlangular',
-          'pug',
-          'sass',
-          'scss',
-          'less',
-          'eruby',
-          'php',
-        },
-      },
     }
 
     -- Ensure the servers and tools above are installed
