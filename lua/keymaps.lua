@@ -62,10 +62,10 @@ vim.keymap.set('v', 'O', 'Ozz', { desc = 'Move the cursor to start/end of blockw
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save file' })
 vim.keymap.set({ 'i', 'v' }, '<C-s>', '<Esc>:w<CR>', { desc = 'Save file' })
 
-vim.keymap.set('n', 'Za', ':qa<CR>', { desc = 'Quit all windows' })
-vim.keymap.set('n', 'Zs', ':wqa<CR>', { desc = 'Save and quit all windows' })
+vim.keymap.set('n', 'Za', ':wqa<CR>', { desc = 'Quit and save all windows' })
 
-vim.keymap.set('n', '<leader>ex', ':Ex<CR>', { desc = 'Open Netrw in the current window' })
+-- vim.keymap.set('n', '<leader>ex', ':Ex<CR>', { desc = 'Open Netrw in the current window' })
+vim.keymap.set('n', '<leader>ex', ':Oil<CR>', { desc = 'Open parent directory' })
 
 vim.keymap.set('n', '<leader>T', ':tabnew<CR>', { desc = 'Open New Tab' })
 
