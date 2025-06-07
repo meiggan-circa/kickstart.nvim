@@ -14,8 +14,8 @@ return {
     { 'j-hui/fidget.nvim', opts = {} },
 
     -- Allows extra capabilities provided by autocompletion plugin
-    -- 'hrsh7th/cmp-nvim-lsp',
-    'saghen/blink.cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    -- 'saghen/blink.cmp',
 
     {
       'folke/lazydev.nvim',
@@ -87,7 +87,7 @@ return {
         -- Jump to the type of the word under your cursor.
         --  Useful when you're not sure what type a variable is and you want to see
         --  the definition of its *type*, not where it was *defined*.
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+        map('<leader>td', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
@@ -164,10 +164,10 @@ return {
     --  By default, Neovim doesn't support everything that is in the LSP specification.
     --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    -- local capabilities = require('blink.cmp').get_lsp_capabilities()
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -211,8 +211,6 @@ return {
       html = { capabilities = capabilities, },
 
       ts_ls = { capabilities = capabilities, },
-
-      tailwindcss = { capabilities = capabilities, },
 
       intelephense = { capabilities = capabilities, },
 
