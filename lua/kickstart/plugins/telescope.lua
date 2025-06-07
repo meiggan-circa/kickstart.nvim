@@ -48,6 +48,7 @@ return {
 
       local picker_opts = {
         theme = 'ivy',
+        previewer = false,
         layout_config = {
           height = 100,
         },
