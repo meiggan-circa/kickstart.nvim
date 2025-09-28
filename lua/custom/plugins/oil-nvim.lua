@@ -3,7 +3,7 @@ return {
   enabled = true,
   ---@module 'oil'
   ---@type oil.SetupOpts
-  opts = {},
+  opts = { win_options = { signcolumn = 'yes:2' } },
   -- Optional dependencies
   -- dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if you prefer nvim-web-devicons
