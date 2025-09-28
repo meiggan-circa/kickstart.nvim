@@ -209,7 +209,7 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -217,8 +217,42 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
+        ts_ls = {
+          init_options = {
+            plugins = {
+              {
+                name = '@vue/typescript-plugin',
+                location = '/usr/local/lib/node_modules/@vue/typescript-plugin/',
+                languages = { 'javascript', 'typescript', 'vue' },
+              },
+            },
+          },
+          filetypes = { 'javascript', 'typescript', 'vue' },
+        },
+
+        html = {},
+        tailwindcss = {},
+        intelephense = {},
+        vue_ls = {},
+
+        emmet_language_server = {
+          single_file_support = true,
+          filetypes = {
+            'html',
+            'css',
+            'javascriptreact',
+            'typescriptreact',
+            'htmldjango',
+            'htmlangular',
+            'pug',
+            'sass',
+            'scss',
+            'less',
+            'eruby',
+            'php',
+            'vue',
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
