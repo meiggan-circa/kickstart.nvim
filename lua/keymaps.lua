@@ -79,9 +79,6 @@ vim.keymap.set('n', '<leader><leader>s', '<cmd>source %<CR>', { desc = 'Source e
 vim.keymap.set('n', '<leader>s', ':.lua<CR>', { desc = 'Source current line' })
 vim.keymap.set('v', '<leader>s', ':lua<CR>', { desc = 'Source selected lines' })
 
-vim.keymap.set('n', '<leader>ms', ':Mason<CR>', { desc = 'Open Mason Package Manager' })
-vim.keymap.set('n', '<leader>lz', ':Lazy<CR>', { desc = 'Open Lazy Plugin Manager' })
-
 vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
 
 -- vim: ts=2 sts=2 sw=2 et
