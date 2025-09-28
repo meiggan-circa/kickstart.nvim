@@ -16,6 +16,17 @@ return { --Autoformat
     notify_on_error = false,
     formatters_by_ft = {
       lua = { 'stylua' },
+      html = { 'prettierd' },
+      css = { 'prettierd' },
+      javascript = { 'prettierd' },
+      typescript = { 'prettierd' },
+      json = { 'prettierd' },
+      jsx = { 'prettierd' },
+      tsx = { 'prettierd' },
+      vue = { 'prettierd' },
+      php = { 'php-cs-fixer' },
+      python = { 'black' },
+
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
