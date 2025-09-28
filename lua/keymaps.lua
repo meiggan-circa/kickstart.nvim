@@ -83,4 +83,7 @@ vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotr
 
 vim.keymap.set('n', '<leader>ex', ':Oil<CR>', { desc = 'Open parent directory' })
 
+vim.keymap.set('n', '<leader>st', ':tab Git<CR>', { desc = 'Show git status' })
+vim.keymap.set('n', '<leader>co', ':Git checkout ', { desc = 'Change git branch' })
+
 -- vim: ts=2 sts=2 sw=2 et
