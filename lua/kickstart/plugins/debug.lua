@@ -9,6 +9,7 @@
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
+  enabled = false,
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
@@ -146,3 +147,5 @@ return {
     }
   end,
 }
+
+-- vim: ts=2 sts=2 sw=2 et

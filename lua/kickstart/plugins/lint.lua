@@ -2,6 +2,7 @@ return {
 
   { -- Linting
     'mfussenegger/nvim-lint',
+    enabled = false,
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
@@ -58,3 +59,5 @@ return {
     end,
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et
