@@ -81,4 +81,6 @@ vim.keymap.set('v', '<leader>s', ':lua<CR>', { desc = 'Source selected lines' })
 
 vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
 
+vim.keymap.set('n', '<leader>ex', ':Oil<CR>', { desc = 'Open parent directory' })
+
 -- vim: ts=2 sts=2 sw=2 et
