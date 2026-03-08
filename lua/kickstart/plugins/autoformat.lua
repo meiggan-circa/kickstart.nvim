@@ -24,6 +24,7 @@ return { --Autoformat
       jsx = { 'prettierd' },
       tsx = { 'prettierd' },
       vue = { 'prettierd' },
+      markdown = { 'prettierd' },
       php = { 'php-cs-fixer' },
       python = { 'black' },
 
