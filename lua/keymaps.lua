@@ -101,6 +101,8 @@ vim.keymap.set('n', '<leader>ms', ':Mason<CR>', { desc = 'Open Mason Package Man
 
 vim.keymap.set('n', '<leader>z', ':Undotree<CR>', { desc = 'Toggle Undotree' })
 
+vim.keymap.set('n', '<leader>ex', ':Oil<CR>', { desc = 'Open parent directory' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

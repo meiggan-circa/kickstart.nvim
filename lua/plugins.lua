@@ -44,4 +44,7 @@ require 'kickstart.plugins.treesitter'
 -- require 'custom.plugins.ui'
 -- require 'custom.plugins.git'
 
+require 'custom.plugins.oil-nvim'
+require 'custom.plugins.oil-git-status-nvim'
+
 -- vim: ts=2 sts=2 sw=2 et
