@@ -1,5 +1,8 @@
 -- Load plugin modules in order.
 
+vim.cmd('packadd nvim.undotree')
+vim.cmd('packadd nvim.difftool')
+
 require 'kickstart.plugins.guess-indent'
 require 'kickstart.plugins.gitsigns'
 require 'kickstart.plugins.which-key'
