@@ -35,6 +35,13 @@ if vim.fn.executable 'make' == 1 then table.insert(telescope_plugins, gh 'nvim-t
 -- NOTE: You can install multiple plugins at once
 vim.pack.add(telescope_plugins)
 
+local picker_opts = {
+  theme = 'ivy',
+  layout_config = {
+    height = 100,
+  },
+}
+
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   -- You can put your default mappings / updates / etc. in here
@@ -45,7 +52,27 @@ require('telescope').setup {
   --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
   --   },
   -- },
-  -- pickers = {}
+  pickers = {
+    find_files = picker_opts,
+    grep_string = picker_opts,
+    live_grep = picker_opts,
+
+    help_tags = picker_opts,
+    keymaps = picker_opts,
+    resume = picker_opts,
+    oldfiles = picker_opts,
+    buffers = picker_opts,
+
+    lsp_definitions = picker_opts,
+    lsp_references = picker_opts,
+    lsp_implementations = picker_opts,
+    lsp_type_definitions = picker_opts,
+    lsp_document_symbols = picker_opts,
+    lsp_dynamic_workspace_symbols = picker_opts,
+    diagnostics = picker_opts,
+
+    builtin = picker_opts,
+  },
   extensions = {
     ['ui-select'] = { require('telescope.themes').get_dropdown() },
   },
