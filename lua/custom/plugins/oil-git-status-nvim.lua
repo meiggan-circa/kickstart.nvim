@@ -4,6 +4,6 @@ vim.pack.add {
   gh 'refractalize/oil-git-status.nvim',
 }
 
-require('oil-git-status').setup()
+require('oil-git-status').setup {}
 
 -- vim: ts=2 sts=2 sw=2 et
