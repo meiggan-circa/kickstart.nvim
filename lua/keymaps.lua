@@ -103,6 +103,9 @@ vim.keymap.set('n', '<leader>z', ':Undotree<CR>', { desc = 'Toggle Undotree' })
 
 vim.keymap.set('n', '<leader>ex', ':Oil<CR>', { desc = 'Open parent directory' })
 
+vim.keymap.set('n', '<leader>st', ':tab Git<CR>', { desc = 'Show git status' })
+vim.keymap.set('n', '<leader>co', ':Git switch ', { desc = 'Change git branch' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

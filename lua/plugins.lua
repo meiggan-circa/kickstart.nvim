@@ -47,4 +47,7 @@ require 'kickstart.plugins.treesitter'
 require 'custom.plugins.oil-nvim'
 require 'custom.plugins.oil-git-status-nvim'
 
+local function gh(repo) return 'https://github.com/' .. repo end
+vim.pack.add { gh 'tpope/vim-fugitive' }
+
 -- vim: ts=2 sts=2 sw=2 et
