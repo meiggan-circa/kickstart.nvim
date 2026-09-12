@@ -46,6 +46,11 @@ statusline.setup { use_icons = vim.g.have_nerd_font }
 ---@diagnostic disable-next-line: duplicate-set-field
 statusline.section_location = function() return '%2l:%-2v' end
 
+-- Split and join arguments
+--
+-- - gS    - Toggle splitting/joining of arguments on single line
+require('mini.splitjoin').setup()
+
 -- ... and there is more!
 --  Check out: https://github.com/nvim-mini/mini.nvim
 
