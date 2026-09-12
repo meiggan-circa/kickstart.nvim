@@ -1,5 +1,4 @@
-local function gh(repo) return 'https://github.com/' .. repo end
-vim.pack.add { gh 'stevearc/oil.nvim' }
+vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
 
 -- helper function to parse output
 local function parse_output(proc)
