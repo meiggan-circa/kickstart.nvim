@@ -78,6 +78,8 @@ require('telescope').setup {
   },
 }
 
+require('kickstart.telescope.multigrep').setup()
+
 -- Enable Telescope extensions if they are installed
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'ui-select')
@@ -154,6 +156,6 @@ vim.keymap.set(
 )
 
 -- Shortcut for searching your Neovim configuration files
-vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config', follow = true } end, { desc = '[S]earch [N]eovim files' })
+vim.keymap.set('n', '<leader>rc', function() builtin.find_files { cwd = vim.fn.stdpath 'config', follow = true } end, { desc = '[S]earch [N]eovim files' })
 
 -- vim: ts=2 sts=2 sw=2 et
