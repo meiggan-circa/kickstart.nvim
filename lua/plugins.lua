@@ -46,8 +46,12 @@ require 'kickstart.plugins.indent_line'
 
 require 'custom.plugins.oil-nvim'
 require 'custom.plugins.oil-git-status-nvim'
+require 'custom.plugins.harpoon'
+require 'custom.plugins.trouble'
 
 local function gh(repo) return 'https://github.com/' .. repo end
+
 vim.pack.add { gh 'tpope/vim-fugitive' }
+vim.pack.add { gh 'eero-lehtinen/oklch-color-picker.nvim' }
 
 -- vim: ts=2 sts=2 sw=2 et
