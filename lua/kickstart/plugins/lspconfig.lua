@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   -- tsc = {},
   --
   -- Some languages (like rust) have entire language plugins that can be useful:
@@ -147,6 +147,10 @@ local servers = {
       },
     },
   },
+
+  html = {},
+  tailwindcss = {},
+  intelephense = {},
 }
 
 vim.pack.add {
@@ -182,5 +186,26 @@ for name, server in pairs(servers) do
   vim.lsp.config(name, server)
   vim.lsp.enable(name)
 end
+
+local vue_ls_config = {}
+local vue_ls_path = '/mason/packages/vue-language-server/node_modules/@vue/language-server'
+
+local ts_ls_config = {
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = vim.fn.stdpath 'data' .. vue_ls_path,
+        languages = { 'vue' },
+        configNamespace = 'typescript',
+      },
+    },
+  },
+  filetypes = { 'typescript', 'javascript', 'vue' },
+}
+
+vim.lsp.config('vue_ls', vue_ls_config)
+vim.lsp.config('ts_ls', ts_ls_config)
+vim.lsp.enable { 'ts_ls', 'vue_ls' }
 
 -- vim: ts=2 sts=2 sw=2 et
