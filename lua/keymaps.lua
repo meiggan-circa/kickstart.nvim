@@ -1,10 +1,34 @@
--- See `:help vim.keymap.set()`
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
+-- Diagnostic Config & Keymaps
+--  See `:help vim.diagnostic.Opts`
+vim.diagnostic.config {
+  update_in_insert = false,
+  severity_sort = true,
+  float = { border = 'rounded', source = 'if_many' },
+  underline = { severity = { min = vim.diagnostic.severity.WARN } },
+
+  -- Can switch between these as you prefer
+  virtual_text = true, -- Text shows up at the end of the line
+  virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+
+  -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
+  jump = {
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float {
+        bufnr = bufnr,
+        scope = 'cursor',
+        focus = false,
+      }
+    end,
+  },
+}
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -72,18 +96,26 @@ vim.keymap.set('n', 'Za', ':wqa<CR>', { desc = 'Quit and save all windows' })
 
 vim.keymap.set('n', '<leader>T', ':tabnew<CR>', { desc = 'Open New Tab' })
 
-vim.keymap.set('n', '<leader>lz', ':Lazy<CR>', { desc = 'Open Lazy Plugin Manager' })
+vim.keymap.set('n', '<leader>vp', ':lua vim.pack.update(nil, { offline = true }) <CR>', { desc = 'Explore installed plugins' })
 vim.keymap.set('n', '<leader>ms', ':Mason<CR>', { desc = 'Open Mason Package Manager' })
 
-vim.keymap.set('n', '<leader><leader>s', '<cmd>source %<CR>', { desc = 'Source entire file' })
-vim.keymap.set('n', '<leader>s', ':.lua<CR>', { desc = 'Source current line' })
-vim.keymap.set('v', '<leader>s', ':lua<CR>', { desc = 'Source selected lines' })
-
-vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle, { desc = 'Toggle Undotree' })
+vim.keymap.set('n', '<leader>z', ':Undotree<CR>', { desc = 'Toggle Undotree' })
 
 vim.keymap.set('n', '<leader>ex', ':Oil<CR>', { desc = 'Open parent directory' })
 
 vim.keymap.set('n', '<leader>st', ':tab Git<CR>', { desc = 'Show git status' })
 vim.keymap.set('n', '<leader>co', ':Git switch ', { desc = 'Change git branch' })
+
+-- [[ Basic Autocommands ]]
+--  See `:help lua-guide-autocommands`
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.hl.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function() vim.hl.on_yank() end,
+})
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,34 +1,9 @@
-return {
-  'refractalize/oil-git-status.nvim',
-  dependencies = { 'stevearc/oil.nvim' },
-  opts = {
-    show_ignored = true, -- show files that match gitignore with !!
-    symbols = { -- customize the symbols that appear in the git status columns
-      index = {
-        ['!'] = '!',
-        ['?'] = '?',
-        ['A'] = 'A',
-        ['C'] = 'C',
-        ['D'] = 'D',
-        ['M'] = 'M',
-        ['R'] = 'R',
-        ['T'] = 'T',
-        ['U'] = 'U',
-        [' '] = ' ',
-      },
-      working_tree = {
-        ['!'] = '!',
-        ['?'] = '?',
-        ['A'] = 'A',
-        ['C'] = 'C',
-        ['D'] = 'D',
-        ['M'] = 'M',
-        ['R'] = 'R',
-        ['T'] = 'T',
-        ['U'] = 'U',
-        [' '] = ' ',
-      },
-    },
-  },
-  config = true,
+local function gh(repo) return 'https://github.com/' .. repo end
+vim.pack.add {
+  gh 'stevearc/oil.nvim',
+  gh 'refractalize/oil-git-status.nvim',
 }
+
+require('oil-git-status').setup {}
+
+-- vim: ts=2 sts=2 sw=2 et

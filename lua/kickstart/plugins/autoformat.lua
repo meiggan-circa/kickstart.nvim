@@ -1,40 +1,21 @@
-return { --Autoformat
-  'stevearc/conform.nvim',
-  event = { 'BufWritePre' },
-  cmd = { 'ConformInfo' },
-  keys = {
-    {
-      '<leader>f',
-      function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
-      end,
-      mode = '',
-      desc = '[F]ormat buffer',
-    },
+-- [[ Formatting ]]
+vim.pack.add { 'https://github.com/stevearc/conform.nvim' }
+require('conform').setup {
+  notify_on_error = false,
+  default_format_opts = {
+    lsp_format = 'fallback', -- Use external formatters if configured below, otherwise use LSP formatting. Set to `false` to disable LSP formatting entirely.
   },
-  opts = {
-    notify_on_error = false,
-    formatters_by_ft = {
-      lua = { 'stylua' },
-      html = { 'prettierd' },
-      css = { 'prettierd' },
-      javascript = { 'prettierd' },
-      typescript = { 'prettierd' },
-      json = { 'prettierd' },
-      jsx = { 'prettierd' },
-      tsx = { 'prettierd' },
-      vue = { 'prettierd' },
-      markdown = { 'prettierd' },
-      php = { 'php-cs-fixer' },
-      python = { 'black' },
-
-      -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
-      --
-      -- You can use 'stop_after_first' to run the first available formatter from the list
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
-    },
+  -- You can also specify external formatters in here.
+  formatters_by_ft = {
+    -- rust = { 'rustfmt' },
+    -- Conform can also run multiple formatters sequentially
+    -- python = { "isort", "black" },
+    --
+    -- You can use 'stop_after_first' to run the first available formatter from the list
+    -- javascript = { "prettierd", "prettier", stop_after_first = true },
   },
 }
+
+vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
 
 -- vim: ts=2 sts=2 sw=2 et
